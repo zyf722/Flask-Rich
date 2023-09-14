@@ -1,3 +1,7 @@
+> [!NOTE]
+> **This repository is an official fork of the original [BD103/Flask-Rich](https://github.com/BD103/Flask-Rich) project.** All releases after 0.3 will be published from this fork.
+---
+
 # Flask Rich
 
 Implements the [Rich](https://pypi.org/project/rich/) programming library with [Flask](https://pypi.org/project/Flask/). All features are toggleable, including:
@@ -63,7 +67,7 @@ PRs are welcome! You can setup your own copy of the source code with:
 
 ```shell
 # Git
-git clone https://github.com/BD103/Flask-Rich.git
+git clone https://github.com/zyf722/Flask-Rich.git
 cd Flask-Rich/
 
 # Poetry
