@@ -1,12 +1,13 @@
 [tool.poetry]
 name = "Flask-Rich"
-version = "0.3.0"
+version = "0.4.0"
 description = "Rich implementation for Flask"
 license = "MIT"
 authors = ["BD103 <dont@stalk.me>"]
+maintainers = ["MaxMixAlex <MaxMixAlex@protonmail.com>"]
 readme = "README.md"
-repository = "https://github.com/BD103/Flask-Rich"
-documentation = "https://bd103.github.io/Flask-Rich"
+repository = "https://github.com/zyf722/Flask-Rich"
+documentation = ""  # TODO: Add new documentation page
 keywords = ["flask", "extension", "rich"]
 classifiers = [
     "Development Status :: 4 - Beta",
