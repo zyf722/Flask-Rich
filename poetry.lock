@@ -237,6 +237,17 @@ files = [
 ]
 
 [[package]]
+name = "ochre"
+version = "0.4.0"
+description = "A tiny Python package for working with colors in a pragmatic way"
+optional = false
+python-versions = ">=3.8,<4.0"
+files = [
+    {file = "ochre-0.4.0-py3-none-any.whl", hash = "sha256:6d64b3a055b455103cb90ea6c1cf7c15519b7dd146e3ff2677481a33f54b885b"},
+    {file = "ochre-0.4.0.tar.gz", hash = "sha256:ecbd7632416038f925dc1cc7446c2b863246c36a1c44bb73d7e0fcc773e3c716"},
+]
+
+[[package]]
 name = "pathspec"
 version = "0.11.2"
 description = "Utility library for gitignore style pattern matching of file paths."
@@ -296,6 +307,20 @@ pygments = ">=2.6.0,<3.0.0"
 jupyter = ["ipywidgets (>=7.5.1,<8.0.0)"]
 
 [[package]]
+name = "stransi"
+version = "0.3.0"
+description = "A lightweight parser for ANSI escape sequences"
+optional = false
+python-versions = ">=3.8,<4.0"
+files = [
+    {file = "stransi-0.3.0-py3-none-any.whl", hash = "sha256:7082fe969abca1059437a45b81c3b05a2eb1362503487bd35bd1d8919af3f0a4"},
+    {file = "stransi-0.3.0.tar.gz", hash = "sha256:2ba0195f935a8a152ad1921b25e14e7e78c549948d2ef0f63a6a5d9ab4625830"},
+]
+
+[package.dependencies]
+ochre = ">=0.4.0,<0.5.0"
+
+[[package]]
 name = "tomli"
 version = "1.2.3"
 description = "A lil' TOML parser"
@@ -352,4 +377,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "0d6dd49188e39b47fb863a0e65f525eb78421fcfc531d018cad6c67b1028004c"
+content-hash = "c8edbdabd2462f977f1ffa4f523c6a1978bf3b9383d9ed6a6f32c0bcf31308b2"

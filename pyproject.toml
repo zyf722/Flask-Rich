@@ -21,6 +21,7 @@ classifiers = [
 python = "^3.8"
 Flask = "^2.0.2"
 rich = "^10.13.0"
+stransi = "^0.3.0"
 
 [tool.poetry.dev-dependencies]
 black = "^21.10b0"
