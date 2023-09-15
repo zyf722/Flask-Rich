@@ -18,13 +18,6 @@ from stransi.color import ColorRole, SetColor
 class RichApplication:
     """
     A Flask extension that adds rich logging features to the application.
-
-    :param app:
-        The Flask Application object
-    :param console:
-        A `rich.console.Console` instance to use for logging. Defaults to a new `Console` instance.
-    :param highlighter:
-        A `rich.highlighter.Highlighter` instance to use for logging. Defaults to `rich.highlighter.ReprHighlighter`.
     """
 
     def __init__(
@@ -33,6 +26,15 @@ class RichApplication:
         console: Console = None,
         highlighter: Highlighter = None,
     ):
+        """
+        Args:
+            app:
+                The Flask Application object.
+            console:
+                A `rich.console.Console` instance to use for logging. Defaults to a new `Console` instance.
+            highlighter:
+                A `rich.highlighter.Highlighter` instance to use for logging. Defaults to :py:data:`None`, which will use an instance of :class:`rich:rich.highlighter.ReprHighlighter` internally in :class:`rich:rich.logging.RichHandler`.
+        """
         self.app = app
 
         if app is not None:
@@ -47,12 +49,13 @@ class RichApplication:
         """
         Register this extension with the flask app.
 
-        :param app:
-            The Flask Application object
-        :param console:
-            A `rich.console.Console` instance to use for logging. Defaults to a new `Console` instance.
-        :param highlighter:
-            A `rich.highlighter.Highlighter` instance to use for logging. Defaults to `rich.highlighter.ReprHighlighter`.
+        Args:
+            app:
+                The Flask Application object.
+            console:
+                A `rich.console.Console` instance to use for logging. Defaults to a new `Console` instance.
+            highlighter:
+                A `rich.highlighter.Highlighter` instance to use for logging. Defaults to :py:data:`None`, which will use an instance of :class:`rich:rich.highlighter.ReprHighlighter` internally in :class:`rich:rich.logging.RichHandler`.
         """
         if console is None:
             self.console = Console()
