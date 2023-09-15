@@ -2,68 +2,94 @@
 > **This repository is an official fork of the original [BD103/Flask-Rich](https://github.com/BD103/Flask-Rich) project.** All releases after 0.3 will be published from this fork.
 ---
 
-# Flask Rich
+[![License](https://img.shields.io/github/license/zyf722/Flask-Rich)](LICENSE)
+[![PyPI version](https://img.shields.io/pypi/v/flask-rich
+)](https://pypi.org/project/flask-rich/)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/flask-rich)
+[![Documentation Status](https://readthedocs.org/projects/flask-rich/badge/?version=latest)](https://flask-rich.readthedocs.io/en/latest/?badge=latest)
 
-Implements the [Rich](https://pypi.org/project/rich/) programming library with [Flask](https://pypi.org/project/Flask/). All features are toggleable, including:
 
-- Better logging
-- Colorful tracebacks
-- Better `routes` command
+# Flask-Rich
 
-## Usage
+Flask-Rich is a Flask extension that implements the [Rich](https://pypi.org/project/rich/) programming library with [Flask](https://pypi.org/project/Flask/), which brings better logging / tracebacks with *rich* text formatting, and more features related to the console.
 
-Import the `RichApplication` class.
+[![asciicast](https://asciinema.org/a/608190.svg)](https://asciinema.org/a/608190)
+
+## Features
+
+- :rainbow: Better console logging powered by [Rich's logging](https://rich.readthedocs.io/en/latest/logging.html) handler, with full support for [console markup](https://rich.readthedocs.io/en/latest/markup.html#console-markup), [highlighting](https://rich.readthedocs.io/en/latest/highlighting.html),  [tracebacks](https://rich.readthedocs.io/en/latest/traceback.html) and more
+- :construction: Builtin support for [Werkzeug](https://pypi.org/project/Werkzeug/) which runs the Flask development server
+- :mag: A new `rich-routes` Flask command that use Rich to show all routes
+- :wrench: Customizable and toggleable features
+
+
+## Basic Usage
+
+Just like any other Flask extension, you can initialize and register Flask-Rich with your Flask app in two ways:
+
+### Single File
 
 ```python
-from flask_rich import RichApplication
 from flask import Flask
+from flask_rich import RichApplication
 
-rich = RichApplication()
+class Config:
+    RICH_LOGGING = True
 
 app = Flask(__name__)
-app.config["RICH_EXAMPLE_SETTING"] = "value"
+app.config.from_object(Config())  # or any other way to load config
 
-rich.init_app(app)
+# Initialize the extension with the app
+rich = RichApplication(app)
 
-# Or
-# rich = RichApplication(app)
+@app.route("/")
+def index():
+    return "Hello World!"
 ```
 
-### Class options
+### Factory Pattern
 
-#### `RICH_LOGGING: bool = True`
+```python
+# rich.py
+from flask_rich import RichApplication
 
-Whether to use [Rich's logging](https://rich.readthedocs.io/en/latest/logging.html) handler.
+# Initialize the extension without an app
+rich = RichApplication()
+```
 
-#### `RICH_LOGGING_MARKUP: bool = True`
+```python
+# app.py
+from flask import Flask
+from .rich import rich
 
-Whether to allow [Rich's console markup](https://rich.readthedocs.io/en/latest/markup.html#console-markup) format in logging.
+class Config:
+    RICH_LOGGING = True
 
-An example of console markup is `[blue]Hello[/blue], world!`.
+def create_app:
+    app = Flask(__name__)
+    app.config.from_object(Config())  # or any other way to load config
 
-#### `RICH_TRACEBACK: bool = True`
+    # Register the extension with the app
+    rich.init_app(app)
+    # ...
+    return app
+```
 
-Whether to use [Rich's traceback](https://rich.readthedocs.io/en/latest/traceback.html) handler.
+After registering, the `RichApplication` class shall do all the work for you.
 
-#### `RICH_TRACEBACK_EXTRA_LINES: int = 1`
+You can now use the `app.logger` object to log rich text, and use the `flask rich-routes` command to show all routes.
 
-When Rich prints the lines of code which raised the error, how many lines around it does it print as well. In the library it defaults to 3, but 1 is better for web applications.
+For further usage and configuration, please refer to the [documentation](https://flask-rich.readthedocs.io/en/latest/).
 
-#### `RICH_TRACEBACK_SHOW_LOCALS: bool = False`
+## Feedback
 
-Whether to print the local variables with traceback.
-
-#### `RICH_ROUTES: bool = True`
-
-Whether to add a new command that uses [Rich's tables](https://rich.readthedocs.io/en/latest/tables.html) to show all routes. (Activate with `flask rich-routes`.)
-
-#### `RICH_ROUTES_MODE: str = "table"`
-
-What mode the command is in. There is only one option: table.
+If you have any suggestions or troubles using this extension, please feel free to open an [issue](https://github.com/zyf722/Flask-Rich/issues).
 
 ## Contributing
 
-PRs are welcome! You can setup your own copy of the source code with:
+[Pull Requests](https://github.com/zyf722/Flask-Rich/pulls) are welcome!
+
+You can setup your own copy of the source code with Git and [Poetry](https://python-poetry.org/):
 
 ```shell
 # Git
@@ -76,4 +102,10 @@ poetry install
 poetry shell
 ```
 
-You will need [Poetry](https://python-poetry.org/) for managing dependencies.
+It is strongly recommended to follow the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification when writing commit messages and creating pull requests.
+
+## Credits
+Thanks to the following people for their contributions:
+- [BD103](https://github.com/BD103) for creating the original project and maintaining it until version `0.3.1`
+- [Will McGugan](https://github.com/willmcgugan) and all other contributors of the [Rich](https://github.com/Textualize/rich) project
+- [Pallets](https://github.com/pallets) and all other contributors of the [Flask](https://github.com/pallets/flask) project
