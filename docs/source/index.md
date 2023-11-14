@@ -21,4 +21,5 @@ Flask-Rich is a Flask extension that implements the [Rich](https://pypi.org/proj
    configuration.md
    flask-commands.md
    reference.md
+   changelog.md
 ```
