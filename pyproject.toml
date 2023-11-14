@@ -19,7 +19,7 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = "^3.8"
-Flask = "^2.3.3"
+Flask = ">=2.3.3"
 rich = "^13.5.2"
 stransi = "^0.3.0"
 
