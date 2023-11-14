@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "Flask-Rich"
-version = "0.4.0"
+version = "0.4.1"
 description = "Rich implementation for Flask"
 license = "MIT"
 authors = ["BD103 <dont@stalk.me>", "MaxMixAlex <MaxMixAlex@protonmail.com>"]
@@ -19,7 +19,7 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = "^3.8"
-Flask = "^2.3.3"
+Flask = ">=2.3.3"
 rich = "^13.5.2"
 stransi = "^0.3.0"
 

@@ -52,4 +52,4 @@ def create_app:
     return app
 ```
 
-After registering, the `RichApplication` class shall do all the work for you. Just use the Flask {py:attr}`flask.Flask.logger` object to log rich texts.
+After registering, the {py:class}`~flask_rich.core.RichApplication` class shall do all the work for you. Just use the Flask {py:attr}`flask.Flask.logger` object to log rich texts.
