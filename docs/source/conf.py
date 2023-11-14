@@ -35,9 +35,9 @@ html_theme = "sphinx_rtd_theme"
 
 intersphinx_mapping = {
     "python": ("http://docs.python.org/3", None),
-    "flask": ("https://flask.palletsprojects.com/en/2.3.x/", None),
+    "flask": ("https://flask.palletsprojects.com/en/3.0.x/", None),
     "rich": ("https://rich.readthedocs.io/en/latest", None),
-    "werkzeug": ("https://werkzeug.palletsprojects.com/en/2.3.x/", None),
+    "werkzeug": ("https://werkzeug.palletsprojects.com/en/3.0.x/", None),
 }
 
 autodoc_typehints = "description"
